@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LibraNet</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFFFFF">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="confirmed_page_2.css" />
+    <script src="confirmed_page_2.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Mobile Topbar -->
+    <header
+        class="top-nav flex justify-between items-center px-4 py-2 bg-[#18354a] text-white shadow md:hidden fixed top-0 left-0 right-0 z-50">
+        <button id="hamburger" class="text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="font-bold">LibraNet</span>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <button class="install-btn p-2 bg-[#18354a] text-white rounded-full hover:bg-[#415977] transition">
+                <i class="fa-solid fa-download"></i>
+            </button>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+
+    <!-- Desktop Topbar -->
+    <header
+        class="top-nav hidden md:flex justify-between items-center px-6 py-4 bg-[#18354a] text-white shadow fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center space-x-6">
+            <i class="fas fa-book-open text-2xl"></i>
+            <span class="text-xl font-bold">LibraNet</span>
+            <a href="#" class="hover:underline"><i class="fas fa-home"></i> Dashboard</a>
+
+            <div class="relative">
+                <button id="categories-btn" class="flex items-center space-x-2">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Categories</span>
+                </button>
+                <div id="categories-dropdown"
+                    class="absolute left-0 mt-2 hidden bg-[#6D7F96] text-white rounded-md shadow-md">
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977]">Fiction</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977]">Non-Fiction</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977]">Technology</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977]">Mathematics</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977]">Islamic</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-[#415977] font-bold">View More</a>
+                </div>
+            </div>
+        </div>
+        <nav class="flex items-center space-x-6">
+            <button class="install-btn px-4 py-2 bg-[#18354a] text-white rounded-full hover:bg-[#415977] transition">
+                <i class="fa-solid fa-download"></i> <span class="font-bold">Install LibraNet</span>
+            </button>
+            <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="#"><i class="fas fa-user-circle"></i> Hello, Lyra</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="flex flex-1 pt-[48px] md:pt-[64px]">
+        <aside id="sidebar"
+            class="side-nav bg-[#61584D] px-2 py-3 w-60 min-h-screen hidden md:flex flex-col fixed left-0 top-[48px] md:top-[64px] z-40">
+            <!-- Top section -->
+            <div class="space-y-1">
+                <a href="#"
+                    class="menu-item flex items-center justify-between bg-[#a6947e] px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-book"></i>
+                        <span>Books</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Magazines</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-desktop"></i>
+                        <span>Computers</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-code"></i>
+                        <span>Computer Programs</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-door-open"></i>
+                        <span>Meeting Rooms</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>My Bookings</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+            </div>
+
+            <!-- Bottom section: spaced downward but not to bottom -->
+            <div class="space-y-1 pt-4 mt-32">
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-id-card"></i>
+                        <span>My Library Cards</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+
+                <a href="#" class="menu-item flex items-center justify-between px-3 py-2 rounded hover:bg-[#a6947e]">
+                    <div class="flex items-center space-x-3 text-white">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm text-white arrow hidden"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content flex-1 px-4 md:ml-60 md:px-6">
+            <!-- Search bar -->
+            <div class="search-bar flex items-center space-x-2 mt-4 mb-8">
+                <input type="text" placeholder="Search"
+                    class="flex-1 md:w-1/2 px-4 py-2 border border-gray-300 rounded-full" />
+                <button class="bg-[#6D7F96] text-white px-3 py-2 rounded-full hover:bg-[#415977] transition">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <h1 class="text-[30px] font-bold hermeneus">Books</h1>
+
+            <!--Here-->
+            <h2 class="text-[26px] font hermeneus">Mathematics</h2>
+            <br>
+            
+            <!-- Confirmation Message -->
+        <section class="bg-white p-8 rounded-lg shadow-md text-center max-w-3xl mx-auto">
+            <div class="text-green-600 text-5xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Thank you :)</h1>
+            <p class="text-xl text-gray-700">Your Purchase Order has Been Confirmed!</p>
+            <p>For More Details Check <strong>"My Bookings"</strong></p>
+            <img src="Screenshot 2025-06-12 224403.png" alt="Confirmation Graphic"
+                class="w-[200px] h-[200px] object-contain mx-auto mt-4" />
+        </section>
+
+        <!-- Recommendation Section -->
+        <section class="mt-16 bg-gray-50 p-6 rounded-lg shadow-inner max-w-6xl mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+                <i class="fas fa-book-open"></i> Other Books You Might Like
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Book Card -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+                    <img src="images.jpeg" alt="Book Cover" class="w-full h-48 object-cover rounded">
+                    <h3 class="text-lg font-semibold mt-3">Calculus: An Intuitive and Physical Approach (Second Edition)
+                    </h3>
+                    <p class="text-sm text-gray-500">Morris Kline</p>
+                    <p class="text-md text-gray-800 font-bold mt-1">$29.49</p>
+                    <div class="flex gap-2 mt-3">
+                        <button class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+                    <img src="images (1).jpeg" alt="Book Cover" class="w-full h-48 object-cover rounded">
+                    <h3 class="text-lg font-semibold mt-3">Essential Calculus Skills Practice Workbook with Full
+                        Solutions</h3>
+                    <p class="text-sm text-gray-500">Chris McMullen</p>
+                    <p class="text-md text-gray-800 font-bold mt-1">$12.99</p>
+                    <div class="flex gap-2 mt-3">
+                        <button class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+                    <img src="71XRv2UHeeL._SY342_.jpg" alt="Book Cover" class="w-full h-48 object-cover rounded">
+                    <h3 class="text-lg font-semibold mt-3">Single Variable Calculus, International Metric Edition</h3>
+                    <p class="text-sm text-gray-500">James Stewart</p>
+                    <p class="text-md text-gray-800 font-bold mt-1">$49.99</p>
+                    <div class="flex gap-2 mt-3">
+                        <button class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- View More Button -->
+        <div class="mt-6 flex justify-center">
+            <a href="more_books.html"> <!--The page of the books here-->
+                <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm font-medium">
+                    View More
+                </button>
+            </a>
+        </div>
+        </main>
+
+        <script src="indexedDB.js"></script>
+</body>
+</html>
