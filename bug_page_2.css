@@ -1,3 +1,33 @@
+/* Responsive layout for book details section */
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.image-box {
+    /* default order on desktop */
+}
+
+.details-box {
+    flex: 1;
+}
+
+/* Stack image above details on mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-box {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+}
+
+
 /* Prevent horizontal scrolling on main content */
 body {
     overflow-x: hidden;
