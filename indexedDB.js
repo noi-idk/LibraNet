@@ -18,10 +18,24 @@ async function openDB() {
 
 // Save an order to IndexedDB
 async function saveOrder(orderData) {
+  console.log("Opening DB...");
   const db = await openDB();
+  console.log("DB opened:", db);
+
   const tx = db.transaction('orders', 'readwrite');
+  console.log("Transaction started:", tx);
+
   const store = tx.objectStore('orders');
-  await store.add(orderData);
+  console.log("Storing order data:", orderData);
+
+  try {
+    await store.add(orderData);
+    console.log("Order saved successfully");
+  } catch (err) {
+    console.error("Error during store.add():", err);
+    throw err;
+  }
+
   await tx.complete;
   db.close();
 }

@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         confirmBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'confirmed_page_2.html';
+            window.open('confirmed_page_2.html', '_blank');
         });
 
         modalClose.addEventListener('click', () => {

@@ -172,6 +172,7 @@
 
         <!-- Main Content -->
         <main class="main-content flex-1 px-4 md:ml-60 md:px-6">
+            <nav id="breadcrumbs" class="hidden md:flex text-sm text-gray-600 mb-4">
             <!-- Search bar -->
             <div class="search-bar flex items-center space-x-2 mt-4 mb-8">
                 <input type="text" placeholder="Search"
@@ -314,6 +315,12 @@
         </main>
 
         <script src="indexedDB.js"></script>
+
+        <script src="breadcrumbs.js"></script>
+        <script>
+            localStorage.removeItem("breadcrumbs");
+            updateBreadcrumbs("Book Details", "book_details_page.html");
+        </script>
 </body>
 
 </html>
