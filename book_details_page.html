@@ -173,6 +173,18 @@
         <!-- Main Content -->
         <main class="main-content flex-1 px-4 md:ml-60 md:px-6">
             <nav id="breadcrumbs" class="text-sm text-gray-600 mt-6 mb-4"></nav>
+            <style>
+                #breadcrumbs {
+                    display: none;
+                }
+
+                @media (min-width: 768px) {
+                    #breadcrumbs {
+                        display: block;
+                    }
+                }
+            </style>
+
             <!-- Search bar -->
             <div class="search-bar flex items-center space-x-2 mt-4 mb-8">
                 <input type="text" placeholder="Search"
