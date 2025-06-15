@@ -1,6 +1,5 @@
 const cacheName = "libranet-cache-v3";
 const filesToCache = [
-  "./",
   "./studentDashboard.html",
   "./studentDashboard.css",
   "./studentDashboard.js",
@@ -8,8 +7,7 @@ const filesToCache = [
   "./book-192.png",
   "./book-512.png",
   "./Sale.png",
-  "https://cdn.tailwindcss.com",
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  // Note: External URLs are NOT safe to cache here directly
 ];
 
 self.addEventListener("install", (event) => {
@@ -47,12 +45,11 @@ self.addEventListener("fetch", (event) => {
         return response;
       }
       return fetch(event.request).catch(() => {
-        // Return a fallback page if offline
-        if (event.request.destination === "document") {
-          return caches.match("./index.html");
+        // If request fails and it's a navigation (HTML page), return fallback
+        if (event.request.mode === "navigate") {
+          return caches.match("./studentDashboard.html");
         }
       });
     })
   );
 });
-

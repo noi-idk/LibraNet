@@ -265,6 +265,15 @@
             localStorage.removeItem("breadcrumbs");
             updateBreadcrumbs("Purchase Confirmation", "confirmed_page_2.html");
         </script>
+
+        <script src="service-worker.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(() => console.log("Service Worker registered."))
+                    .catch(err => console.error("Service Worker registration failed:", err));
+            }
+        </script>
 </body>
 
 </html>
