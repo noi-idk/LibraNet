@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       await saveOrder(orderData);
-      window.location.href = 'confirmed_page.html';
+      window.location.href = 'confirmed_page_2.html';
     } catch (err) {
       console.error("Failed to save order:", err);
       alert("There was an error saving your order.");
