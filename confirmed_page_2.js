@@ -5,55 +5,51 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
 
     const installButtons = document.querySelectorAll('.install-btn');
-    if (installButtons.length > 0) {
-        installButtons.forEach(btn => {
-            btn.style.display = 'inline-block';
-            btn.disabled = false;
-        });
-    }
+    installButtons.forEach(btn => {
+        btn.style.display = 'inline-block';
+        btn.disabled = false;
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
     // PWA Install setup
     const installButtons = document.querySelectorAll('.install-btn');
-    if (installButtons.length > 0) {
-        installButtons.forEach(button => {
-            button.style.display = 'none';
-            button.disabled = true;
+    installButtons.forEach(button => {
+        button.style.display = 'none';
+        button.disabled = true;
 
-            button.addEventListener('click', async () => {
-                if (!deferredPrompt) {
-                    alert('Install prompt not available yet.');
-                    return;
-                }
+        button.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                alert('Install prompt not available yet.');
+                return;
+            }
 
-                deferredPrompt.prompt();
-                const choiceResult = await deferredPrompt.userChoice;
-                console.log(`User ${choiceResult.outcome === 'accepted' ? 'accepted' : 'dismissed'} the install prompt`);
-                deferredPrompt = null;
+            deferredPrompt.prompt();
+            const choiceResult = await deferredPrompt.userChoice;
+            console.log(`User ${choiceResult.outcome === 'accepted' ? 'accepted' : 'dismissed'} the install prompt`);
+            deferredPrompt = null;
 
-                installButtons.forEach(btn => {
-                    btn.style.display = 'none';
-                    btn.disabled = true;
-                });
+            installButtons.forEach(btn => {
+                btn.style.display = 'none';
+                btn.disabled = true;
             });
         });
-    }
+    });
 
-    // Carousel functionality
-    const carousel = document.getElementById('carousel');
+    // Carousel functionality with scrollAmount tracking
     let scrollAmount = 0;
+    const carousel = document.getElementById('carousel');
 
-    if (carousel) {
-        window.scrollCarousel = function (direction) {
+    window.scrollCarousel = function (direction) {
+        if (carousel) {
             const slideWidth = carousel.children[0]?.offsetWidth + 24 || 200;
             scrollAmount += direction * slideWidth;
             carousel.scrollTo({
                 left: scrollAmount,
                 behavior: 'smooth'
             });
-        };
-    }
+        }
+    };
 
     // Categories Dropdown
     const categoriesBtn = document.getElementById("categories-btn");

@@ -138,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = 'confirmed_page_2.html';
         });
 
-
         modalClose.addEventListener('click', () => {
             modal.classList.add('hidden');
         });
